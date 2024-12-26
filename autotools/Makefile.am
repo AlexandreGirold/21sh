@@ -1,1 +1,1 @@
-SUBDIRS = autotools/src
+SUBDIRS = src
