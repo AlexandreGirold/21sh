@@ -1,2 +1,2 @@
 noinst_LIBRARIES = liblexer.a
-libast_a_SOURCES = lexer.c
+liblexer_a_SOURCES = lexer.c

@@ -1,6 +1,8 @@
 AC_INIT([42sh], [1.0], [alexandre.girold@epita.fr])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_PROG_CC
+AC_PROG_RANLIB
+AM_PROG_AR([act-if-fail])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
                 Makefile 

@@ -1,2 +1,2 @@
 noinst_LIBRARIES = libparser.a
-libast_a_SOURCES = parser.c
+libparser_a_SOURCES = parser.c
