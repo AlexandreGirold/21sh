@@ -1,16 +1,32 @@
-AC_INIT([42sh], [1.0], [alexandre.girold@epita.fr])
-AM_INIT_AUTOMAKE([foreign -Wall -Werror])
-#AC_CONFIG_SRCDIR([autotools/src/42sh.c])
 
-AC_PROG_CC
+
+# Init the 42sh project
+AC_INIT([42sh], [1.0], [42sh@assistants.epita.fr])
+
+# Setup Automake
+AM_INIT_AUTOMAKE([subdir-objects] [foreign])
+
+# Pretty display of Makefile rules
+AM_SILENT_RULES([yes])
+
+# Enable ar for Makefile
+AM_PROG_AR
+
+# Check if ranlib is available
 AC_PROG_RANLIB
-AM_PROG_AR([act-if-fail])
-AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([\
-                Makefile \
-                src/Makefile \
-                src/ast/Makefile \
-                src/lexer/Makefile \
-                src/parser/Makefile
-                 ])
+
+# Check if a C compiler is available
+AC_PROG_CC
+
+# Check if a compiler has this list of flags
+AX_COMPILER_FLAGS([], [], [], [-Wall -Wextra -Werror -Wvla -pedantic -std=c99])
+
+# List Makefiles in subdirectories
+AC_CONFIG_FILES([
+                    Makefile
+                    src/Makefile
+                    src/ast/Makefile
+                    src/parser/Makefile
+                    src/lexer/Makefile
+                ])
 AC_OUTPUT
